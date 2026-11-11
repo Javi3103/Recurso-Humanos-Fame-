@@ -1,0 +1,16 @@
+{
+  "name": "talentohumano-monorepo",
+  "version": "1.0.0",
+  "description": "Sistema de Buzón de Sugerencias y Reportes Internos - Talento Humano",
+  "scripts": {
+    "docker:up": "docker-compose up --build -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  },
+  "keywords": ["talento-humano", "rrhh", "buzon-sugerencias", "mvc", "docker"],
+  "author": "FAME S.A.C.",
+  "license": "ISC"
+}
+

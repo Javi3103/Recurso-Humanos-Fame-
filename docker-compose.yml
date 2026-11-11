@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # 1. API Backend (Servicio de Envío de Correos)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fame_talento_backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      PORT: 4000
+      NODE_ENV: production
+    ports:
+      - "4000:4000"
+
+  # 2. Frontend Web (React + Nginx en puerto 80 estándar)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fame_talento_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
