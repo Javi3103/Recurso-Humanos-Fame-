@@ -11,29 +11,33 @@ echo "   Iniciando Despliegue en Ubuntu - FAME Talento Humano"
 echo "======================================================="
 echo ""
 
-# 1. Verificar si Docker está instalado
-if ! command -v docker &> /dev/null; then
-    echo "⚠️ Docker no está instalado. Instalando Docker en Ubuntu..."
+# 1. Detectar comando de Docker Compose (soporta versión moderna 'docker compose' y legacy 'docker-compose')
+if docker compose version &> /dev/null; then
+    COMPOSE="docker compose"
+elif command -v docker-compose &> /dev/null; then
+    COMPOSE="docker-compose"
+else
+    echo "⚠️ Docker Compose no encontrado. Instalando paquete necesario..."
     sudo apt-get update
-    sudo apt-get install -y ca-certificates curl gnupg lsb-release
-    sudo mkdir -p /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get update
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose
-    sudo usermod -aG docker $USER
-    echo "✅ Docker instalado exitosamente."
+    sudo apt-get install -y docker-compose-plugin docker-compose
+    if docker compose version &> /dev/null; then
+        COMPOSE="docker compose"
+    else
+        COMPOSE="docker-compose"
+    fi
 fi
 
-# 2. Levantar los contenedores con Docker Compose
+echo "✅ Usando comando: $COMPOSE"
+
+# 2. Levantar los contenedores
 echo "🚀 Construyendo y levantando contenedores..."
-sudo docker-compose up --build -d
+sudo $COMPOSE up --build -d
 
 echo ""
 echo "======================================================="
 echo "   Estado de los Contenedores:"
 echo "======================================================="
-sudo docker-compose ps
+sudo $COMPOSE ps
 
 # 3. Obtener la IP local del servidor Ubuntu
 IP_LOCAL=$(hostname -I | awk '{print $1}')
@@ -47,6 +51,5 @@ echo "Accede a la aplicación desde cualquier computadora de la red en:"
 echo "👉 URL Local / Intranet: http://${IP_LOCAL}"
 echo ""
 echo "Para ver los registros en tiempo real:"
-echo "sudo docker-compose logs -f"
+echo "sudo $COMPOSE logs -f"
 echo ""
-
