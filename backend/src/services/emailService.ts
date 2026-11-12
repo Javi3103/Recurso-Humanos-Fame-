@@ -55,7 +55,7 @@ async function getTransporter(): Promise<Transporter> {
 
 export async function sendReportNotification(data: ReportMailData): Promise<string> {
   const mailTransporter = await getTransporter();
-  const destinationEmail = process.env.NOTIFICATION_EMAIL || 'sjramos@espe.edu.ec';
+  const destinationEmail = process.env.NOTIFICATION_EMAIL || '0998736909ramos@gmail.com';
 
   const typeLabels: Record<string, string> = {
     SUGERENCIA: '💡 SUGERENCIA DE MEJORA',
@@ -70,7 +70,7 @@ export async function sendReportNotification(data: ReportMailData): Promise<stri
     : `<strong>Nombre:</strong> ${data.reporter_name || 'No especificado'}<br><strong>Área / Departamento:</strong> ${data.reporter_department || 'No especificado'}`;
 
   const mailOptions = {
-    from: `"Buzón Talento Humano - FAME" <${process.env.SMTP_USER || 'buzon@fame.com.pe'}>`,
+    from: `"Buzón Talento Humano - FAME" <${process.env.SMTP_USER || '0998736909ramos@gmail.com'}>`,
     to: destinationEmail,
     subject: `[Buzón RRHH] ${typeTitle}: ${data.title}`,
     html: `
@@ -78,8 +78,8 @@ export async function sendReportNotification(data: ReportMailData): Promise<stri
         
         <!-- Cabecera Institucional FAME -->
         <div style="background-color: #0f172a; color: #ffffff; padding: 20px; border-radius: 10px; margin-bottom: 24px; border-bottom: 4px solid #f59e0b;">
-          <h2 style="margin: 0; font-size: 20px; letter-spacing: 0.5px;">Buzón de Talento Humano — FAME S.A.C.</h2>
-          <p style="margin: 6px 0 0 0; font-size: 12px; color: #cbd5e1;">Industria de la Seguridad y Defensa Nacional</p>
+          <h2 style="margin: 0; font-size: 20px; letter-spacing: 0.5px;">Buzón de Talento Humano — FAME</h2>
+          <p style="margin: 6px 0 0 0; font-size: 12px; color: #cbd5e1;">Buzón de Escucha Activa y Transparencia</p>
         </div>
 
         <!-- Tabla de Datos -->
