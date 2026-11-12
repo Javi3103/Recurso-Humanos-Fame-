@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ocultar barra de desplazamiento visualmente en todos los navegadores */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer y Edge */
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge, Opera, Brave */
+}
+
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   margin: 0;

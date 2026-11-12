@@ -71,26 +71,26 @@ export const NewReportForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto py-8 px-4">
+    <div className="max-w-xl mx-auto w-full">
       
       {/* Encabezado elegante y nítido */}
-      <div className="text-center mb-6">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+      <div className="text-center mb-4">
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
           ¿En qué podemos mejorar?
         </h1>
-        <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed max-w-md mx-auto">
+        <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed max-w-md mx-auto">
           Escribe con total libertad. Tu mensaje llega directamente a la Gerencia de Talento Humano.
         </p>
       </div>
 
       {/* Tarjeta Blanca Cristalina sobre fondo plomo */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 p-6 sm:p-8 text-slate-800">
+      <div className="bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 p-5 sm:p-7 text-slate-800">
         
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           
           {/* 1. Selector de Tipo: Solo Sugerencia y Denuncia */}
           <div>
-            <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">
               ¿Qué tipo de mensaje deseas enviar?
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -99,14 +99,14 @@ export const NewReportForm: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setReportType('SUGERENCIA')}
-                className={`py-3.5 px-3 rounded-2xl border text-center transition-all flex flex-col items-center justify-center cursor-pointer ${
+                className={`py-2.5 px-3 rounded-2xl border text-center transition-all flex flex-col items-center justify-center cursor-pointer ${
                   reportType === 'SUGERENCIA'
                     ? 'border-emerald-600 bg-emerald-50 text-emerald-950 font-bold ring-2 ring-emerald-500/20 shadow-sm'
                     : 'border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:bg-white'
                 }`}
               >
-                <div className={`p-1.5 rounded-lg mb-1.5 ${reportType === 'SUGERENCIA' ? 'bg-emerald-600 text-white' : 'text-slate-500'}`}>
-                  <Lightbulb className="w-5 h-5" />
+                <div className={`p-1.5 rounded-lg mb-1 ${reportType === 'SUGERENCIA' ? 'bg-emerald-600 text-white' : 'text-slate-500'}`}>
+                  <Lightbulb className="w-4 h-4" />
                 </div>
                 <span className="text-sm font-semibold">Sugerencia</span>
                 <span className="text-[11px] text-slate-400 font-normal">Ideas para mejorar</span>
@@ -116,14 +116,14 @@ export const NewReportForm: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setReportType('DENUNCIA')}
-                className={`py-3.5 px-3 rounded-2xl border text-center transition-all flex flex-col items-center justify-center cursor-pointer ${
+                className={`py-2.5 px-3 rounded-2xl border text-center transition-all flex flex-col items-center justify-center cursor-pointer ${
                   reportType === 'DENUNCIA'
                     ? 'border-red-600 bg-red-50 text-red-950 font-bold ring-2 ring-red-500/20 shadow-sm'
                     : 'border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:bg-white'
                 }`}
               >
-                <div className={`p-1.5 rounded-lg mb-1.5 ${reportType === 'DENUNCIA' ? 'bg-red-600 text-white' : 'text-slate-500'}`}>
-                  <ShieldAlert className="w-5 h-5" />
+                <div className={`p-1.5 rounded-lg mb-1 ${reportType === 'DENUNCIA' ? 'bg-red-600 text-white' : 'text-slate-500'}`}>
+                  <ShieldAlert className="w-4 h-4" />
                 </div>
                 <span className="text-sm font-semibold">Denuncia</span>
                 <span className="text-[11px] text-slate-400 font-normal">Reporte confidencial</span>
@@ -134,7 +134,7 @@ export const NewReportForm: React.FC = () => {
 
           {/* 2. Campo Asunto (Obligatorio) */}
           <div>
-            <div className="flex justify-between items-center mb-1.5">
+            <div className="flex justify-between items-center mb-1">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
                 Asunto <span className="text-red-500 font-bold">*</span>
               </label>
@@ -147,13 +147,13 @@ export const NewReportForm: React.FC = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder={reportType === 'SUGERENCIA' ? 'Ej: Propuesta para el comedor, mejora de turnos...' : 'Ej: Hostigamiento, falta de respeto, uso indebido...'}
-              className="w-full text-sm px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all"
+              className="w-full text-sm px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all"
             />
           </div>
 
           {/* 3. Campo Mensaje (Obligatorio con máximo 400 caracteres) */}
           <div>
-            <div className="flex justify-between items-center mb-1.5">
+            <div className="flex justify-between items-center mb-1">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
                 Cuéntanos qué sucede o qué propones <span className="text-red-500 font-bold">*</span>
               </label>
@@ -165,18 +165,18 @@ export const NewReportForm: React.FC = () => {
             </div>
             <textarea
               required
-              rows={4}
+              rows={3}
               maxLength={MAX_CHARS}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Escribe aquí con tus propias palabras lo que ocurre o la idea que tienes..."
-              className="w-full text-sm p-4 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none resize-none transition-all"
+              className="w-full text-sm p-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none resize-none transition-all"
             />
           </div>
 
           {/* 4. Opción de anonimato simple */}
           <div className="pt-2 border-t border-slate-100">
-            <label className="flex items-center space-x-2.5 cursor-pointer select-none">
+            <label className="flex items-center space-x-2 cursor-pointer select-none">
               <input
                 type="checkbox"
                 checked={isAnonymous}
@@ -191,7 +191,7 @@ export const NewReportForm: React.FC = () => {
 
             {/* Si desmarca el anónimo, solicita nombre y área */}
             {!isAnonymous && (
-              <div className="grid grid-cols-2 gap-3 mt-3 pt-3 border-t border-slate-100">
+              <div className="grid grid-cols-2 gap-3 mt-2.5 pt-2.5 border-t border-slate-100">
                 <div>
                   <label className="block text-xs text-slate-600 mb-1 font-semibold">Tu nombre (opcional)</label>
                   <input
@@ -199,7 +199,7 @@ export const NewReportForm: React.FC = () => {
                     value={reporterName}
                     onChange={(e) => setReporterName(e.target.value)}
                     placeholder="Ej. Juan Pérez"
-                    className="w-full text-xs px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:outline-none"
+                    className="w-full text-xs px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:outline-none"
                   />
                 </div>
                 <div>
@@ -209,7 +209,7 @@ export const NewReportForm: React.FC = () => {
                     value={reporterDepartment}
                     onChange={(e) => setReporterDepartment(e.target.value)}
                     placeholder="Ej. Producción / Planta"
-                    className="w-full text-xs px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:outline-none"
+                    className="w-full text-xs px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:outline-none"
                   />
                 </div>
               </div>
@@ -217,7 +217,7 @@ export const NewReportForm: React.FC = () => {
           </div>
 
           {errorMsg && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs font-medium">
+            <div className="p-2.5 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs font-medium">
               {errorMsg}
             </div>
           )}
@@ -226,7 +226,7 @@ export const NewReportForm: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm shadow-xl shadow-slate-900/20 transition-all flex items-center justify-center space-x-2 disabled:opacity-50 cursor-pointer"
+            className="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm shadow-xl shadow-slate-900/20 transition-all flex items-center justify-center space-x-2 disabled:opacity-50 cursor-pointer"
           >
             {loading ? (
               <>
