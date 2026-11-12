@@ -75,10 +75,6 @@ export const NewReportForm: React.FC = () => {
       
       {/* Encabezado elegante y nítido */}
       <div className="text-center mb-6">
-        <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-200/80 border border-slate-300 text-slate-700 text-xs font-semibold mb-3">
-          <Lock className="w-3.5 h-3.5 text-amber-600" />
-          <span>Canal 100% Confidencial y Seguro</span>
-        </span>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
           ¿En qué podemos mejorar?
         </h1>
