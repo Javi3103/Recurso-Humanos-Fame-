@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Afiche Buzón de Sugerencias y Denuncias - FAME</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #f1f5f9;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    /* Hoja A4 para impresión */
+    .sheet {
+      background: #ffffff;
+      width: 100%;
+      max-width: 650px;
+      padding: 45px 40px;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #475569;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    /* Marco del Código QR */
+    .qr-card {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      border-radius: 24px;
+      padding: 24px;
+      display: inline-block;
+      margin-bottom: 26px;
+    }
+
+    .qr-image {
+      width: 250px;
+      height: 250px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .scan-label {
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: 0.5px;
+    }
+
+    /* Pasos sencillos */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .step-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    .step-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    /* Mensaje de confidencialidad */
+    .footer-note {
+      font-size: 12px;
+      color: #059669;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Botón flotante para imprimir */
+    .no-print {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-print {
+      background: #0f172a;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    }
+
+    .btn-print:hover {
+      background: #1e293b;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .sheet {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        padding: 20px;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sheet">
+    
+    <div class="badge-top">
+      🏢 Talento Humano • FAME
+    </div>
+
+    <h1>¿En qué podemos mejorar?</h1>
+    <p class="subtitle">
+      Buzón de Escucha Activa, Sugerencias y Denuncias.<br>
+      Tu aporte ayuda a construir un mejor ambiente para todos.
+    </p>
+
+    <!-- Código QR Limpio sin dinosaurio -->
+    <div class="qr-card">
+      <img 
+        class="qr-image" 
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAPoAQMAAAB3bUanAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADCUlEQVR4nO3cQY7iMBAF0Ix6wZIj5CgcLTlajpIj9JIFCi3ZPVIRx1akGQUQ76+ssvErb42VrntqhvvOXJvb9GnNlMaXvVsudDqdTqfT6XQ6nU6n0+l0Op1Opz9Zb+78FfRTGn8X7hwqWR9bW/6h0+l0Op1Op9PpdDqdTqfT6XQ6nf6r39e5FXrOOfTQh/VToQ/rLRc6nU6n0+l0Op1Op9PpdDqdTqfT31E/hVk6nU6n0+l0Op1Op9PpdDqdTqfT6cfoMediPZ1Op9PpdDqdTqfT6XQ6nU6n0+lvqVdSu5/PmVO9r+iV0Ol0Op1Op9PpdDqdTqfT6XQ6nU7flajnl/Pnpr4jdDqdTqfT6XQ6nU6n0+l0Op1Opz9P/4dE/fjQ6XQ6nU6n0+l0Op1Op9PpdDqd/sb6cG8kft+mTPkF+JwpbDymca6n4d+X83Q6nU6n0+l0Op1Op9PpdDqdTqe/jr4xvTd9cGOah1vodDqdTqfT6XQ6nU6n0+l0Op1O/1A9J+hd6CHm2nTnULmkyhj0iGwcjk6n0+l0Op1Op9PpdDqdTqfT6fTj9ThduLfCOoXZ70o/McP6EMvGNJ1Op9PpdDqdTqfT6XQ6nU6n0+mfpues12zkGvTo9qkyN3u4bx/x8f08nU6n0+l0Op1Op9PpdDqdTqfT6cfru9O+n7+k+pTGw/YhFjqdTqfT6XQ6nU6n0+l0Op1Op9PptUVlyn8HzsWaKfQwhh5yb0UP1RbpdDqdTqfT6XQ6nU6n0+l0Op1OP0jvWvkKeldxyx4qh3v8R4BOp9PpdDqdTqfT6XQ6nU6n0+l0erHPrdBPxZo51fsdeio8vtun0+l0Op1Op9PpdDqdTqfT6XQ6/a302vv5mHF7+/9wP0+n0+l0Op1Op9PpdDqdTqfT6XT6J+tlLoUeQ6fT6XQ6nU6n0+l0Op1Op9PpdPqL6pXsv5+fmj3Q6XQ6nU6n0+l0Op1Op9PpdDqdTn/QdyTqMXOq95Vfjd0qW9+3odPpdDqdTqfT6XQ6nU6n0+l0Ov3T9KfmBzovyek30AJFAAAAAElFTkSuQmCC" 
+        alt="QR Buzón FAME"
+      />
+      <div class="scan-label">📲 ESCANEA CON TU CELULAR</div>
+    </div>
+
+    <!-- 3 pasos -->
+    <div class="steps">
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <div class="step-title">Conéctate</div>
+        <div class="step-desc">Asegúrate de estar en la red Wi-Fi institucional de FAME.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <div class="step-title">Escanea</div>
+        <div class="step-desc">Abre la cámara de tu teléfono y enfoca este código QR.</div>
+      </div>
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <div class="step-title">Participa</div>
+        <div class="step-desc">Escribe tu sugerencia o denuncia con total libertad.</div>
+      </div>
+    </div>
+
+    <!-- Garantía -->
+    <div class="footer-note">
+      🔒 100% Anónimo y Confidencial • Canal oficial de Talento Humano
+    </div>
+
+  </div>
+
+  <div class="no-print">
+    <button class="btn-print" onclick="window.print()">🖨️ Imprimir este Afiche / Guardar en PDF</button>
+  </div>
+
+</body>
+</html>
+
