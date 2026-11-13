@@ -73,6 +73,11 @@ export async function sendReportNotification(data: ReportMailData): Promise<stri
     from: `"Buzón Talento Humano - FAME" <${process.env.SMTP_USER || '0998736909ramos@gmail.com'}>`,
     to: destinationEmail,
     subject: `[Buzón RRHH] ${typeTitle}: ${data.title}`,
+    text: `Buzón de Talento Humano - FAME\n\nTipo: ${typeTitle}\nAsunto: ${data.title}\nRemitente: ${isAnonymous ? '100% Anónimo' : `${data.reporter_name || ''} (${data.reporter_department || ''})`}\nFecha: ${new Date().toLocaleString('es-EC')}\n\nMensaje:\n${data.description}\n\nNotificación enviada automáticamente a Talento Humano.`,
+    headers: {
+      'X-Priority': '3',
+      'X-Auto-Response-Suppress': 'OOF, AutoReply',
+    },
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 14px; background-color: #ffffff;">
         
