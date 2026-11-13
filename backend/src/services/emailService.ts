@@ -55,7 +55,7 @@ async function getTransporter(): Promise<Transporter> {
 
 export async function sendReportNotification(data: ReportMailData): Promise<string> {
   const mailTransporter = await getTransporter();
-  const destinationEmail = process.env.NOTIFICATION_EMAIL || '0998736909ramos@gmail.com';
+  const destinationEmail = process.env.NOTIFICATION_EMAIL || 'mchuquitarco@fame.ec';
 
   const typeLabels: Record<string, string> = {
     SUGERENCIA: '💡 SUGERENCIA DE MEJORA',
@@ -98,7 +98,7 @@ export async function sendReportNotification(data: ReportMailData): Promise<stri
           </tr>
           <tr>
             <td style="padding: 10px 0; color: #64748b;"><strong>Fecha de Envío:</strong></td>
-            <td style="padding: 10px 0; color: #0f172a;">${new Date().toLocaleString('es-PE')}</td>
+            <td style="padding: 10px 0; color: #0f172a;">${new Date().toLocaleString('es-EC')}</td>
           </tr>
         </table>
 
