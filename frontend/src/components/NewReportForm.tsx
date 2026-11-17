@@ -79,7 +79,7 @@ export const NewReportForm: React.FC = () => {
           ¿En qué podemos mejorar?
         </h1>
         <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed max-w-md mx-auto">
-          Escribe con total libertad. Tu mensaje llega directamente a la Gerencia de Talento Humano.
+          Escribe con total libertad. Tu mensaje llega directamente a Talento Humano.
         </p>
       </div>
 

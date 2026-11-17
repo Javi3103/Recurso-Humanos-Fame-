@@ -120,7 +120,7 @@ export async function sendReportNotification(data: ReportMailData): Promise<stri
 
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
         <p style="font-size: 11px; color: #94a3b8; text-align: center; margin: 0;">
-          Notificación enviada automáticamente a la Gerencia de Talento Humano (${destinationEmail}).
+          Notificación enviada automáticamente a Talento Humano (${destinationEmail}).
         </p>
       </div>
     `,
