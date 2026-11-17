@@ -23,15 +23,18 @@ async function getTransporter(): Promise<Transporter> {
   // 1. Si el usuario configuró credenciales SMTP reales en .env (Gmail, Outlook o empresa)
   if (process.env.SMTP_USER && process.env.SMTP_PASS) {
     transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      host: process.env.SMTP_HOST || 'smtp.office365.com',
       port: parseInt(process.env.SMTP_PORT || '587', 10),
       secure: process.env.SMTP_SECURE === 'true', // true para puerto 465, false para 587
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      tls: {
+        ciphers: 'SSLv3',
+      },
     });
-    console.log(`📧 Servicio de correo conectado con SMTP: ${process.env.SMTP_HOST || 'smtp.gmail.com'} (Remitente: ${process.env.SMTP_USER})`);
+    console.log(`📧 Servicio de correo conectado con SMTP: ${process.env.SMTP_HOST || 'smtp.office365.com'} (Remitente: ${process.env.SMTP_USER})`);
     return transporter;
   }
 
@@ -70,7 +73,7 @@ export async function sendReportNotification(data: ReportMailData): Promise<stri
     : `<strong>Nombre:</strong> ${data.reporter_name || 'No especificado'}<br><strong>Área / Departamento:</strong> ${data.reporter_department || 'No especificado'}`;
 
   const mailOptions = {
-    from: `"Buzón Talento Humano - FAME" <${process.env.SMTP_USER || '0998736909ramos@gmail.com'}>`,
+    from: `"Buzón Talento Humano - FAME" <${process.env.SMTP_USER || 'mchuquitarco@fame.ec'}>`,
     to: destinationEmail,
     subject: `[Buzón RRHH] ${typeTitle}: ${data.title}`,
     text: `Buzón de Talento Humano - FAME\n\nTipo: ${typeTitle}\nAsunto: ${data.title}\nRemitente: ${isAnonymous ? '100% Anónimo' : `${data.reporter_name || ''} (${data.reporter_department || ''})`}\nFecha: ${new Date().toLocaleString('es-EC')}\n\nMensaje:\n${data.description}\n\nNotificación enviada automáticamente a Talento Humano.`,
