@@ -146,8 +146,7 @@ export const NewReportForm: React.FC = () => {
               maxLength={120}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder={reportType === 'SUGERENCIA' ? 'Ej: Propuesta para el comedor, mejora de turnos...' : 'Ej: Hostigamiento, falta de respeto, uso indebido...'}
-              className="w-full text-sm px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all"
+              className="w-full text-sm px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all"
             />
           </div>
 
@@ -169,8 +168,7 @@ export const NewReportForm: React.FC = () => {
               maxLength={MAX_CHARS}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Escribe aquí con tus propias palabras lo que ocurre o la idea que tienes..."
-              className="w-full text-sm p-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none resize-none transition-all"
+              className="w-full text-sm p-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none resize-none transition-all"
             />
           </div>
 
@@ -198,8 +196,7 @@ export const NewReportForm: React.FC = () => {
                     type="text"
                     value={reporterName}
                     onChange={(e) => setReporterName(e.target.value)}
-                    placeholder="Ej. Juan Pérez"
-                    className="w-full text-xs px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:outline-none"
+                    className="w-full text-xs px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:bg-white focus:border-amber-500 focus:outline-none"
                   />
                 </div>
                 <div>
@@ -208,8 +205,7 @@ export const NewReportForm: React.FC = () => {
                     type="text"
                     value={reporterDepartment}
                     onChange={(e) => setReporterDepartment(e.target.value)}
-                    placeholder="Ej. Producción / Planta"
-                    className="w-full text-xs px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:bg-white focus:border-amber-500 focus:outline-none"
+                    className="w-full text-xs px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:bg-white focus:border-amber-500 focus:outline-none"
                   />
                 </div>
               </div>
