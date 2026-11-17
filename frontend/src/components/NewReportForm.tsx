@@ -75,8 +75,8 @@ export const NewReportForm: React.FC = () => {
       
       {/* Encabezado elegante y nítido */}
       <div className="text-center mb-4">
-        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-          ¿En qué podemos mejorar?
+        <h1 className="text-3xl font-extrabold text-slate-900 tracking-wider">
+          BUZÓN
         </h1>
         <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed max-w-md mx-auto">
           Escribe con total libertad. Tu mensaje llega directamente a Talento Humano.
