@@ -154,7 +154,7 @@ export const NewReportForm: React.FC = () => {
           <div>
             <div className="flex justify-between items-center mb-1">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Cuéntanos qué sucede o qué propones <span className="text-red-500 font-bold">*</span>
+                Descripción <span className="text-red-500 font-bold">*</span>
               </label>
               <span className={`text-[11px] font-mono font-medium ${
                 description.length >= MAX_CHARS ? 'text-red-600 font-bold' : description.length >= MAX_CHARS - 40 ? 'text-amber-600 font-semibold' : 'text-slate-400'
